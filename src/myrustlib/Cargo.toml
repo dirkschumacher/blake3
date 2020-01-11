@@ -1,0 +1,11 @@
+[package]
+publish = false
+name = "myrustlib"
+version = "0.1.0"
+authors = ["Dirk Schumacher <mail@dirk-schumacher.net>"]
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+blake3 = "0.1.0"
