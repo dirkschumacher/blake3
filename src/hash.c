@@ -4,8 +4,7 @@
 
 SEXP hash(SEXP x) {
   const R_len_t n = length(x);
-  const int OUT_LEN = 32;
-  SEXP result = PROTECT(allocVector(RAWSXP, OUT_LEN));
+  SEXP result = PROTECT(allocVector(RAWSXP, 32));
   blake3_hash(RAW(x), n, (uint8_t*)RAW(result));
   UNPROTECT(1);
   return result;
