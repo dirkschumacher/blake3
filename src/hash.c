@@ -9,7 +9,7 @@ SEXP hash(SEXP x) {
   UNPROTECT(1);
   return result;
 }
-
+// # nocov start
 static const R_CallMethodDef callMethods[]  = {
   {"hash", (DL_FUNC) &hash, 1},
   {NULL, NULL, 0}
@@ -20,3 +20,4 @@ void R_init_miscset(DllInfo *dll)
   R_registerRoutines(dll, NULL, callMethods, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
 }
+// # nocov end
