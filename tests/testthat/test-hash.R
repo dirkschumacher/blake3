@@ -19,3 +19,15 @@ test_that("keyed hashing works", {
     "324cfa665e232acc5c287839bdb88e924add564cf0866f38042f2deca501adfb"
   )
 })
+
+test_that("key can either be NULL or 32 byte raw", {
+  expect_error(
+    blake3_hash_raw(raw(10), "test")
+  )
+  expect_error(
+    blake3_hash_raw(raw(10), raw(10))
+  )
+  expect_silent(
+    blake3_hash_raw(raw(10), raw(32))
+  )
+})

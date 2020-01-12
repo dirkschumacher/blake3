@@ -4,6 +4,6 @@
 #' @export
 blake3_hash_raw <- function(x, key = NULL) {
   stopifnot(is.raw(x))
-  stopifnot(is.null(key) || is.raw(key) && length(key) == 32L)
+  stopifnot(is.null(key) || (is.raw(key) && length(key) == 32L))
   .Call("hash", x, key)
 }
