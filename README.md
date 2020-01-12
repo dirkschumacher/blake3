@@ -28,6 +28,11 @@ To quote blake3’s readme:
 >   - One algorithm with no variants, which is fast on x86-64 and also
 >     on smaller architectures.
 
+> *BLAKE3 is not a password hashing algorithm, because it’s designed to
+> be fast, whereas password hashing should not be fast. If you hash
+> passwords to store the hashes or if you derive keys from passwords, we
+> recommend Argon2.*
+
 ## Installation
 
 ``` r
