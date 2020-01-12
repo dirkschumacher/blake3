@@ -7,6 +7,10 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build
+status](https://travis-ci.org/dirkschumacher/blake3.svg?branch=master)](https://travis-ci.org/dirkschumacher/blake3)
+[![Codecov test
+coverage](https://codecov.io/gh/dirkschumacher/blake3/branch/master/graph/badge.svg)](https://codecov.io/gh/dirkschumacher/blake3?branch=master)
 <!-- badges: end -->
 
 `blake3` is an interface to the

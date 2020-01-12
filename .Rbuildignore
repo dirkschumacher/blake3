@@ -3,3 +3,5 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^src/myrustlib/target*
+^\.travis\.yml$
+^codecov\.yml$
