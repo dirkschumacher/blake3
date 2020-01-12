@@ -47,7 +47,7 @@ Also make sure to have a very recent rust compiler. The best way to install the 
 
 ## API
 
-It is still a very early version of the package. The api currently just has one function to hash `RAW` vectors.
+It is still a very early version of the package. The api currently just has one function to hash `RAW` vectors with an optional 32 byte `RAW` key parameter.
 
 ## Example
 
@@ -67,6 +67,15 @@ input <- serialize(LETTERS, NULL, version = 2)
 hash <- blake3_hash_raw(input)
 (sodium::bin2hex(hash))
 ```
+
+```{r}
+# keyed hashes are also supported
+key <- blake3_hash_raw(charToRaw("test"))
+input <- serialize(LETTERS, NULL, version = 2)
+hash <- blake3_hash_raw(input, key)
+(sodium::bin2hex(hash))
+```
+
 
 ## Benchmark
 To get an idea about the speed we hash a random string of 1 million characters and compare it to the `openssl` implementation of `sha1`, `sha2` and `md5`.

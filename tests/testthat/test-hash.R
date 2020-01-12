@@ -1,8 +1,21 @@
 test_that("hashing works", {
   # checksum generated using b3sum
-  result <- blake3_hash_raw(charToRaw("wat\n"))
+  # echo -n "wat" | b3sum
+  result <- blake3_hash_raw(charToRaw("wat"))
   expect_equal(
     sodium::bin2hex(result),
-    "ba352b2dd4b820c8e81701a064a477b1cd4e872ecb38b1e85da5e5541cecce36"
+    "daad161f364eb7abd95a6ae159af6186f5a8003ced50d1dd82d21e91115ff36b"
+  )
+})
+
+test_that("keyed hashing works", {
+  # checksum generated using b3sum
+  # echo -n "wat" > wat
+  # echo -n "test" | b3sum | xxd -r -p | b3sum --keyed wat
+  key <- blake3_hash_raw(charToRaw("test"))
+  result <- blake3_hash_raw(charToRaw("wat"), key)
+  expect_equal(
+    sodium::bin2hex(result),
+    "324cfa665e232acc5c287839bdb88e924add564cf0866f38042f2deca501adfb"
   )
 })
