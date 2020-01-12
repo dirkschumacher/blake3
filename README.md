@@ -52,7 +52,8 @@ install the rust toolchain is to use [rustup](https://rustup.rs/).
 ## API
 
 It is still a very early version of the package. The api currently just
-has one function to hash `RAW` vectors.
+has one function to hash `RAW` vectors with an optional 32 byte `RAW`
+key parameter.
 
 ## Example
 
@@ -73,6 +74,15 @@ hash <- blake3_hash_raw(input)
 #> [1] "7b2fe4e871bf4dfca892e9b46ae237f55103235e635d994f351e4553aced2bee"
 ```
 
+``` r
+# keyed hashes are also supported
+key <- blake3_hash_raw(charToRaw("test"))
+input <- serialize(LETTERS, NULL, version = 2)
+hash <- blake3_hash_raw(input, key)
+(sodium::bin2hex(hash))
+#> [1] "0021965f7c0ca0233e576670b84d35506129ef4bd94c5c8a07b8bb4bdbfb6ce3"
+```
+
 ## Benchmark
 
 To get an idea about the speed we hash a random string of 1 million
@@ -91,11 +101,11 @@ microbenchmark::microbenchmark(
   times = 1000
 )
 #> Unit: microseconds
-#>    expr      min       lq      mean    median       uq       max neval
-#>     md5 1639.421 1762.593 2307.9394 2037.3440 2450.195  9339.925  1000
-#>    sha1 1178.352 1305.298 1914.2677 1611.3670 2077.104 13262.759  1000
-#>    sha2 2525.234 2867.456 3796.1225 3320.0170 4155.565 25155.140  1000
-#>  blake3  390.594  473.616  909.4756  718.8525 1086.749 20167.403  1000
+#>    expr      min       lq      mean   median        uq      max neval
+#>     md5 1640.739 1679.727 1866.0004 1736.997 1904.4585 5902.874  1000
+#>    sha1 1177.078 1206.927 1429.5398 1255.660 1502.0495 6223.994  1000
+#>    sha2 2522.645 2589.403 2929.1884 2723.578 3054.4920 6785.628  1000
+#>  blake3  389.721  413.038  575.0413  448.384  611.8085 3698.705  1000
 ```
 
 ## License
