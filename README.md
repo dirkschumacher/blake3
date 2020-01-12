@@ -37,6 +37,9 @@ To quote blake3’s readme:
 > passwords to store the hashes or if you derive keys from passwords, we
 > recommend Argon2.*
 
+If you want to store passwords in R, please also take a look at
+[sodium::password\_store](https://download.libsodium.org/doc/password_hashing/default_phf).
+
 ## Installation
 
 ``` r
@@ -55,6 +58,14 @@ input <- "This is a string"
 hash <- blake3_hash_raw(charToRaw(input))
 (sodium::bin2hex(hash))
 #> [1] "718b749f12a61257438b2ea6643555fd995001c9d9ff84764f93f82610a780f2"
+```
+
+``` r
+# you can also hash arbitrary R objects by serializing it first
+input <- serialize(LETTERS, NULL, version = 2)
+hash <- blake3_hash_raw(input)
+(sodium::bin2hex(hash))
+#> [1] "7b2fe4e871bf4dfca892e9b46ae237f55103235e635d994f351e4553aced2bee"
 ```
 
 ## License
