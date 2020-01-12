@@ -4,10 +4,12 @@
 \alias{blake3_hash_raw}
 \title{Hash a raw vector using BLAKE3}
 \usage{
-blake3_hash_raw(x)
+blake3_hash_raw(x, key = NULL)
 }
 \arguments{
 \item{x}{a raw vector}
+
+\item{key}{either NULL or a 32 byte long raw vector}
 }
 \description{
 Hash a raw vector using BLAKE3
