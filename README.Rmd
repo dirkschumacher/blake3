@@ -45,6 +45,10 @@ remotes::install_github("dirkschumacher/blake3")
 
 Also make sure to have a very recent rust compiler. The best way to install the rust toolchain is to use [rustup](https://rustup.rs/).
 
+## API
+
+It is still a very early version of the package. The api currently just has one function to hash `RAW` vectors.
+
 ## Example
 
 ```{r example}
