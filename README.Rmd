@@ -68,6 +68,22 @@ hash <- blake3_hash_raw(input)
 (sodium::bin2hex(hash))
 ```
 
+## Benchmark
+To get an idea about the speed we hash a random string of 1 million characters and compare it to the `openssl` implementation of `sha1`, `sha2` and `md5`.
+```{r}
+library(openssl)
+set.seed(42)
+input <- charToRaw(paste0(sample(LETTERS, 1e6, replace = TRUE), collapse = ""))
+microbenchmark::microbenchmark(
+  md5 = md5(input),
+  sha1 = sha1(input),
+  sha2 = sha2(input),
+  blake3 = blake3_hash_raw(input),
+  times = 1000
+)
+```
+
+
 ## License
 
 MIT

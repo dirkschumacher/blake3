@@ -73,6 +73,31 @@ hash <- blake3_hash_raw(input)
 #> [1] "7b2fe4e871bf4dfca892e9b46ae237f55103235e635d994f351e4553aced2bee"
 ```
 
+## Benchmark
+
+To get an idea about the speed we hash a random string of 1 million
+characters and compare it to the `openssl` implementation of `sha1`,
+`sha2` and `md5`.
+
+``` r
+library(openssl)
+set.seed(42)
+input <- charToRaw(paste0(sample(LETTERS, 1e6, replace = TRUE), collapse = ""))
+microbenchmark::microbenchmark(
+  md5 = md5(input),
+  sha1 = sha1(input),
+  sha2 = sha2(input),
+  blake3 = blake3_hash_raw(input),
+  times = 1000
+)
+#> Unit: microseconds
+#>    expr      min       lq      mean    median       uq       max neval
+#>     md5 1639.421 1762.593 2307.9394 2037.3440 2450.195  9339.925  1000
+#>    sha1 1178.352 1305.298 1914.2677 1611.3670 2077.104 13262.759  1000
+#>    sha2 2525.234 2867.456 3796.1225 3320.0170 4155.565 25155.140  1000
+#>  blake3  390.594  473.616  909.4756  718.8525 1086.749 20167.403  1000
+```
+
 ## License
 
 MIT
