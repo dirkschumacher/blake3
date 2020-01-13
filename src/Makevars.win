@@ -1,0 +1,13 @@
+LIBDIR = myrustlib/target/release
+STATLIB = $(LIBDIR)/myrustlib.lib
+PKG_LIBS = -L$(LIBDIR) -lmyrustlib -lws2_32 -ladvapi32 -luserenv
+
+all: clean
+
+$(SHLIB): $(STATLIB)
+
+$(STATLIB):
+	cargo build --release --manifest-path=myrustlib/Cargo.toml
+
+clean:
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) myrustlib/target
