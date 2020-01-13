@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build status](https://travis-ci.org/dirkschumacher/blake3.svg?branch=master)](https://travis-ci.org/dirkschumacher/blake3)
 [![Codecov test coverage](https://codecov.io/gh/dirkschumacher/blake3/branch/master/graph/badge.svg)](https://codecov.io/gh/dirkschumacher/blake3?branch=master)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/dirkschumacher/blake3?branch=master&svg=true)](https://ci.appveyor.com/project/dirkschumacher/blake3)
 <!-- badges: end -->
 
 `blake3` is an interface to the [BLAKE3](https://github.com/BLAKE3-team/BLAKE3) cryptographic hash function.

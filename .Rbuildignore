@@ -5,3 +5,4 @@
 ^src/myrustlib/target*
 ^\.travis\.yml$
 ^codecov\.yml$
+^appveyor\.yml$

@@ -11,6 +11,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://travis-ci.org/dirkschumacher/blake3.svg?branch=master)](https://travis-ci.org/dirkschumacher/blake3)
 [![Codecov test
 coverage](https://codecov.io/gh/dirkschumacher/blake3/branch/master/graph/badge.svg)](https://codecov.io/gh/dirkschumacher/blake3?branch=master)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/dirkschumacher/blake3?branch=master&svg=true)](https://ci.appveyor.com/project/dirkschumacher/blake3)
 <!-- badges: end -->
 
 `blake3` is an interface to the
@@ -101,11 +103,11 @@ microbenchmark::microbenchmark(
   times = 1000
 )
 #> Unit: microseconds
-#>    expr      min       lq      mean   median        uq      max neval
-#>     md5 1640.739 1679.727 1866.0004 1736.997 1904.4585 5902.874  1000
-#>    sha1 1177.078 1206.927 1429.5398 1255.660 1502.0495 6223.994  1000
-#>    sha2 2522.645 2589.403 2929.1884 2723.578 3054.4920 6785.628  1000
-#>  blake3  389.721  413.038  575.0413  448.384  611.8085 3698.705  1000
+#>    expr      min        lq      mean   median        uq       max neval
+#>     md5 1642.046 1706.4365 2122.6316 1818.370 2134.4005  18062.48  1000
+#>    sha1 1177.968 1240.2955 1640.7850 1326.849 1643.3490  25931.11  1000
+#>    sha2 2525.800 2646.3605 3329.6363 2871.883 3338.2370  44283.34  1000
+#>  blake3  392.209  432.4955  904.7596  485.348  750.0965 166377.83  1000
 ```
 
 ## License
